@@ -1,0 +1,12 @@
+.main
+  .side_bar
+    %p.side_bar__title ジャンル別の投稿
+    .side_bar__list
+      %a.side_bar__list__btn(href="#") 🍼哺乳瓶🍼
+      %a.side_bar__list__btn(href="#") 📗日記📗
+      %a.side_bar__list__btn(href="#") 🧸おもちゃ🧸
+      %a.side_bar__list__btn(href="#") 🚗ベビーカー🚗
+  .content
+    -# - @posts.each do |post|
+    -#   = render partial: "post", locals: { post: post }
+    -# = paginate(@post)

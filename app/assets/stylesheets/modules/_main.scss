@@ -1,0 +1,38 @@
+.main{
+  display: flex;
+  .side_bar{
+    height: 100vh;
+    width: 200px;
+    padding-top: 70px;
+    &__title{
+      text-align: center;
+      padding-top: 50px;
+      font-size: 20px;
+      color: coral;
+      border-bottom: 1px solid rgba(0,0,0,0.1);
+      box-shadow: 0 1px 0 rgb(121, 118, 118);
+    }
+    &__list{
+      text-align: center;
+      padding: 10px;
+      &__btn{
+        padding: 20px 20px; 
+        display: block;
+        text-decoration: none;
+        color: black;
+        border-bottom: 1px solid rgba(0,0,0,0.1);
+        box-shadow: 0 1px 0 rgb(121, 118, 118);
+      }
+      &__btn:hover{
+        box-shadow    : none;        /* カーソル時の影消去 */
+        color         : #ffffff;     /* 背景色     */
+        background    : rgba(250, 184, 122, 0.59);     /* 文字色     */
+      }
+    }
+  }
+  .content{
+    height: 100vh;
+    width: calc(100vw - 200px);
+    // background-color: paleturquoise;
+  }
+}
