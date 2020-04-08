@@ -1,0 +1,62 @@
+.header{
+  height: 70px;
+  width: 100vw;
+  // background-color: rgb(185, 250, 234);
+  border-bottom: 1px solid rgba(0,0,0,0.1);
+  box-shadow: 0 1px 0 rgba(255,255,255,1);
+  position: fixed;
+  display: flex;
+  justify-content: space-around;
+  &__title{
+    font-size: 25px;
+    font-weight: bold;
+    line-height: 70px;
+    color: rgb(248, 152, 232);
+    font-family: fantasy;
+  }
+  &__btn{
+    display: flex;
+    margin: auto 0;
+    &__sign-up{
+      margin-right: 20px;
+      text-decoration: none;
+      display       : inline-block;
+      border-radius : 5%;          /* 角丸       */
+      font-size     : 14pt;        /* 文字サイズ */
+      font-weight: bold;
+      text-align    : center;      /* 文字位置   */
+      cursor        : pointer;     /* カーソル   */
+      padding       : 12px 12px;   /* 余白       */
+      background    : #ffffff;     /* 背景色     */
+      color         : rgba(4, 173, 123, 0.59);     /* 文字色     */
+      line-height   : 1em;         /* 1行の高さ  */
+      transition    : .3s;         /* なめらか変化 */
+      border        : 2px solid #ffffff;    /* 枠の指定 */
+    }
+    &__sign-up:hover{
+      box-shadow    : none;        /* カーソル時の影消去 */
+      color         : #ffffff;     /* 背景色     */
+      background    : rgba(104, 182, 255, 0.59);     /* 文字色     */
+    }
+    &__sign-in{
+      text-decoration: none;
+      display       : inline-block;
+      border-radius : 5%;          /* 角丸       */
+      font-size     : 14pt;        /* 文字サイズ */
+      font-weight: bold;
+      text-align    : center;      /* 文字位置   */
+      cursor        : pointer;     /* カーソル   */
+      padding       : 12px 12px;   /* 余白       */
+      background    : #ffffff;     /* 背景色     */
+      color         : rgba(4, 173, 123, 0.59);     /* 文字色     */
+      line-height   : 1em;         /* 1行の高さ  */
+      transition    : .3s;         /* なめらか変化 */
+      border        : 2px solid #ffffff;    /* 枠の指定 */
+    }
+    &__sign-in:hover{
+      box-shadow    : none;        /* カーソル時の影消去 */
+      color         : #ffffff;     /* 背景色     */
+      background    : rgba(104, 182, 255, 0.59);     /* 文字色     */
+    }
+  }
+}
