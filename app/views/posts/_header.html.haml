@@ -4,30 +4,10 @@
     .header__btn
       = link_to "マイページ", "/users/#{current_user.id}",class: 'header__btn__all'
       = link_to "ログアウト", destroy_user_session_path, method: :delete,class: 'header__btn__all'
-      = link_to  "投稿する", "/post/new", class: "header__btn__post",class: 'header__btn__all'
+      = link_to  "投稿する", new_post_path, class: "header__btn__post",class: 'header__btn__all'
   - else
     .header__btn
       = link_to "ログイン", new_user_session_path, class: 'header__btn__all'
       = link_to "新規登録", new_user_registration_path, class: 'header__btn__all'
 
 
-  -# .header__btn
-  -#   %a.header__btn__sign-up(href="#") 新規登録
-  -#   %a.header__btn__sign-in(href="#") ログイン
-
-
-  -#       %h1.header__title
-  -#         %a{:href => "/"} PicTweet
-  -#       - if user_signed_in?
-  -#         .user_nav.grid-6
-  -#           %span
-  -#             = current_user.name
-  -#             %ul.user__info
-  -#               %li
-  -#                 = link_to "マイページ", "/users/#{current_user.id}"
-  -#                 = link_to "ログアウト", destroy_user_session_path, method: :delete
-  -#           = link_to  "投稿する", "/post/new", class: "header__btn__post"
-  -#       - else
-  -#         .header__btn
-  -#           = link_to "ログイン", new_user_session_path, class: 'header__btn__sign-in'
-  -#           = link_to "新規登録", new_user_registration_path, class: 'header__btn__sign-up'

@@ -1,0 +1,16 @@
+.main
+  %p.show_name
+    = @name
+    さんの投稿一覧
+  .content
+    - @posts.each do |post|
+      .content__post{:style => "background-image: url(#{post.image});"}
+        .more
+          %span= image_tag 'arrow_top.png'
+          %ul.more_list
+            %li
+              = link_to '編集', "/posts/#{post.id}/edit", method: :get
+            %li
+              = link_to '削除', "/posts/#{post.id}", method: :delete
+        .more_title
+          = post.title

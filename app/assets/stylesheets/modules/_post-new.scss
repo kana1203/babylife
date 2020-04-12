@@ -1,0 +1,25 @@
+.post_new{
+  width: 100vw;
+  .post_content{
+    width: 400px;
+    margin: 0 auto;
+    .form_title{
+      padding-top: 70px;
+    }
+    .form_title{
+      display: block;
+    }
+    .form_genre{
+      display: block;
+    }
+    .form_image{
+      display: block;
+    }
+    .form_text{
+      display: block;
+    }
+    .form_submit{
+      display: block;
+    }
+  }
+}

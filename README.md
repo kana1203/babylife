@@ -73,4 +73,4 @@ Things you may want to cover:
 |name|string|null: false|
 
 ### Association
-- has_meny :post
+- has_many :posts
