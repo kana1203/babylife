@@ -1,18 +1,44 @@
 .main
   .content
-    .content__post{:style => "background-image: url(#{@post.image});"}
-      .more
-        %span= image_tag 'arrow_top.png'
-        %ul.more_list
-          %li
-            = link_to '編集', "/posts/#{@post.id}/edit", method: :get
-          %li
-            = link_to '削除', "/posts/#{@post.id}", method: :delete
-      .more_title
-        = @post.title
-        %span.name
-          %a{:href => "/users/#{@post.user.id}"}
-            %span 投稿者
-            = @post.user.name
     .content__text
-      = @post.text
+      - if @post.text.present?
+        .content__box
+          = image_tag @post.image.url
+          .content__title
+            %p タイトル
+            = @post.title
+          .content__text
+            %p 本文
+            = @post.text
+          %ul.more_list
+          - if user_signed_in? && current_user.id == @post.user_id
+            %li
+              = link_to '編集', "/posts/#{@post.id}/edit", method: :get
+            %li
+              = link_to '削除', "/posts/#{@post.id}", method: :delete
+              %span.name
+              %a{:href => "/users/#{@post.user.id}"}
+                %span 投稿者
+                = @post.user.name
+
+
+    .comment
+      - if current_user
+        = form_for ([@post, @comment]) do |f|
+          = f.text_area :text, placeholder: "コメントする"
+          = f.submit "SEND"
+      - else
+        %strong
+          %p ※※※ コメントの投稿には新規登録/ログインが必要です ※※※
+      .comments
+        %h4 ＜コメント一覧＞
+        - if @comments
+          - @comments.each do |comment|
+            %p
+              %strong
+                = link_to comment.user.name, "/users/#{comment.user_id}"
+                ：
+              = comment.text
+              - if user_signed_in? && current_user.id == @post.user_id
+                = link_to '削除', "/comments/#{comment.id}", method: :delete
+              -# = link_to '編集', "/posts/#{@post.id}/comments/#{comment.id}/edit", method: :get

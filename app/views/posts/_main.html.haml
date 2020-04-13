@@ -1,16 +1,23 @@
 .main
   -# .side-left
   .side_bar
-    %p.side_bar__title ジャンル別の投稿
+    %p.side_bar__title 🍼ジャンル別投稿🧸
     .side_bar__list
       - @genres.each do |genre|
         = link_to "#{genre.name}","/genres/#{genre.id}",class: 'side_bar__list__btn'
   .content
-    - @posts.each do |post|
-      .content__post{:style => "background-image: url(#{post.image});"}
-        .more
-          %span= image_tag 'arrow_top.png'
-          %ul.more_list
+    .content__text
+      - @posts.each do |post|
+        - if post.text.present?
+          .content__box
+            = image_tag post.image.url
+            .content__title
+              %p タイトル
+              = post.title
+            .content__text
+              %p 本文
+              = post.text
+            %ul.more_list
             %li
               = link_to '詳細', "/posts/#{post.id}", method: :get
             - if user_signed_in? && current_user.id == post.user_id
@@ -18,9 +25,7 @@
                 = link_to '編集', "/posts/#{post.id}/edit", method: :get
               %li
                 = link_to '削除', "/posts/#{post.id}", method: :delete
-        .more_title
-          = post.title
-          %span.name
+            %span.name
             %a{:href => "/users/#{post.user.id}"}
               %span 投稿者
               = post.user.name

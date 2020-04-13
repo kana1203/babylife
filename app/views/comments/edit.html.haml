@@ -1,0 +1,4 @@
+%p.comment_edit
+  = form_for ([@post, @comment]) do |f|
+    = f.text_area :text, placeholder: "コメントする"
+    = f.submit "SEND"
