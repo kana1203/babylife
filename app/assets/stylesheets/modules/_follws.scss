@@ -1,0 +1,25 @@
+.follws_main{
+  width: 100%;
+  padding-top: 80px;
+  &__content{
+    width: 500px;
+    margin: 0 auto;
+    .follws{
+      font-size: 30px;
+    }
+    .follws_box{
+      &__content{
+        display: flex;
+        &__name{
+          display: block;
+          text-decoration: none;
+          margin-left: 10px;
+        }
+      }
+    }
+  }
+  .follws_link{
+    text-decoration: none;
+   
+  }
+}

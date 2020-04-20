@@ -1,0 +1,9 @@
+.side_bar
+  %h1.search_title 🔍投稿検索🔍
+  = form_tag('/posts/search', method: :get, class: 'search_form') do
+    = text_field_tag :keyword,'',class: 'search_form__tag'
+    = submit_tag "検索", class: 'search_form__btn'
+  %p.side_bar__title 🍼ジャンル別投稿🧸
+  .side_bar__list
+    - @genres.each do |genre|
+      = link_to "#{genre.name}","/genres/#{genre.id}",class: 'side_bar__list__btn'

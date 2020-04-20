@@ -1,0 +1,9 @@
+.follws_main
+  .follws_main__content
+    %h1.follws フォローしてくれている人一覧
+    .follws_box
+    - @users.each do |user|
+      .follws_box__content
+        %p.follws_box__content__title なまえ:
+        = link_to user.name, user_path(user.id),class: 'follws_box__content__name'
+     

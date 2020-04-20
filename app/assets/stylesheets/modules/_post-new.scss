@@ -1,25 +1,47 @@
 .post_new{
-  width: 100vw;
+  width: 100%;
   .post_content{
-    width: 400px;
+    padding-top: 70px;
+    width: 500px;
     margin: 0 auto;
-    .form_title{
-      padding-top: 70px;
+    &__title{
+      font-size: 40px;
     }
-    .form_title{
+    &__name{
       display: block;
     }
-    .form_genre{
+    &__name-form{
+      width: 500px;
+      height: 60px;
+    }
+    &__genre{
       display: block;
     }
-    .form_image{
+    &__image{
       display: block;
     }
-    .form_text{
+    &__text{
       display: block;
     }
-    .form_submit{
-      display: block;
+    &__text-form{
+      width: 500px;
+      height: 60px;
+    }
+    &__submit{
+      display       : inline-block;
+      border-radius : 50%;          /* 角丸       */
+      font-size     : 50pt;        /* 文字サイズ */
+      text-align    : center;      /* 文字位置   */
+      cursor        : pointer;     /* カーソル   */
+      padding       : 12px 57px;   /* 余白       */
+      background    : rgba(255, 0, 0, 0.61);     /* 背景色     */
+      color         : #000000;     /* 文字色     */
+      line-height   : 1em;         /* 1行の高さ  */
+      opacity       : 1;           /* 透明度     */
+      transition    : .3s;         /* なめらか変化 */
+    }
+    &__submit:hover{
+      opacity       : 0.8;         /* カーソル時透明度 */
     }
   }
 }

@@ -1,28 +1,43 @@
 .main
-  %p.show_name
-    = @name
-    さんの投稿一覧
+  .user_show_box
+    .user_show_box__name
+      = @user.name
+      さんの投稿一覧
+    - if current_page?(current_user) 
+      = link_to 'ユーザー情報編集', edit_user_path(current_user),class:'user_show_box__name__edit', method: :get
+    .relationship_box
+      = link_to "フォロー", follows_user_path(@user.id), class: 'relationship_box__list'
+      = link_to "フォロワー", followers_user_path(@user.id), class: 'relationship_box__list'
+      - if current_user != @user
+        - if @user.followed_by?(current_user)
+          = link_to "フォロー済み", user_relationships_path(@user.id), class: 'relationship_box__list', method: :delete
+        - else
+          = link_to "フォローする", user_relationships_path(@user.id), class: 'relationship_box__list', method: :post
+    .user_favorite
+      %p.user_favorite__title お気に入りタイトル一覧
+      - @favorite_posts.each do |post|
+        .user_favorite__show
+          = link_to "#{post.user.name}      #{post.title}", post_path(post.id),class: 'user_favorite__show__link', method: :get
+
+    
+
+   
+
   .content
     .content__text
       - @posts.each do |post|
         - if post.text.present?
           .content__box
             = image_tag post.image.url
+            %p 📗記事の内容 📗
             .content__title
-              %p タイトル
               = post.title
-            .content__text
-              %p 本文
-              = post.text
-            %ul.more_list
-            %li
-              = link_to '詳細', "/posts/#{post.id}", method: :get
+            %p 📕本文 📕
+            .content__text_show
+              = simple_format(post.text)
+            .more_list
+            = link_to '詳細', "/posts/#{post.id}", class: 'more_list__show', method: :get
             - if user_signed_in? && current_user.id == post.user_id
-              %li
-                = link_to '編集', "/posts/#{post.id}/edit", method: :get
-              %li
-                = link_to '削除', "/posts/#{post.id}", method: :delete
-                %span.name
-                %a{:href => "/users/#{post.user.id}"}
-                  %span 投稿者
-                  = post.user.name
+              = link_to '編集', "/posts/#{post.id}/edit", class: 'more_list__show',method: :get
+              = link_to '削除', "/posts/#{post.id}", class: 'more_list__show', method: :delete
+            

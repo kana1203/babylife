@@ -1,31 +1,42 @@
 .main
-  -# .side-left
-  .side_bar
-    %p.side_bar__title 🍼ジャンル別投稿🧸
-    .side_bar__list
-      - @genres.each do |genre|
-        = link_to "#{genre.name}","/genres/#{genre.id}",class: 'side_bar__list__btn'
+  = render partial: 'side_bar'
+
   .content
     .content__text
       - @posts.each do |post|
         - if post.text.present?
           .content__box
             = image_tag post.image.url
+            %p 📗記事の内容 📗
             .content__title
-              %p タイトル
               = post.title
-            .content__text
-              %p 本文
-              = post.text
-            %ul.more_list
-            %li
-              = link_to '詳細', "/posts/#{post.id}", method: :get
+            .more_list
+            = link_to '詳細', "/posts/#{post.id}", class: 'more_list__show', method: :get
             - if user_signed_in? && current_user.id == post.user_id
-              %li
-                = link_to '編集', "/posts/#{post.id}/edit", method: :get
-              %li
-                = link_to '削除', "/posts/#{post.id}", method: :delete
-            %span.name
-            %a{:href => "/users/#{post.user.id}"}
-              %span 投稿者
-              = post.user.name
+              = link_to '編集', "/posts/#{post.id}/edit", class: 'more_list__show',method: :get
+              = link_to '削除', "/posts/#{post.id}", class: 'more_list__show', method: :delete
+
+
+            - if user_signed_in?
+              - if post.favorited_by?(current_user)
+                %p 
+                  %span お気に入り解除:
+                  = link_to "#{post.favorites.count}", "/posts/#{post.id}/favorites", method: :delete
+              - else
+                %p
+                  %span お気に入り登録:
+                  = link_to "#{post.favorites.count}", "/posts/#{post.id}/favorites", method: :post
+            - else
+              %p
+                %span お気に入り数:
+                = "#{post.favorites.count}"
+
+            - if user_signed_in?
+              - if current_user != post.user
+                - if post.user.followed_by?(current_user)
+                  = link_to "フォロー済み", user_relationships_path(post.user.id), method: :delete
+                - else
+                  = link_to "フォローする", user_relationships_path(post.user.id), method: :post
+
+            = link_to "投稿者:#{post.user.name}", "/users/#{post.user.id}",class: 'name'
+           
