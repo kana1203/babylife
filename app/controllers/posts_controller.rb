@@ -1,4 +1,5 @@
 class PostsController < ApplicationController
+  
   def index
     @posts = Post.includes(:user).order("created_at DESC")
     @genres = Genre.all
@@ -27,12 +28,18 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
     @comment = Comment.new
     @comments = @post.comments.includes(:user)
+    @genres = Genre.all
   end
 
   def destroy
     post = Post.find(params[:id])
     post.destroy
     redirect_to root_path
+  end
+
+  def search
+    @posts = Post.search(params[:keyword])
+    @genres = Genre.all
   end
 
   private

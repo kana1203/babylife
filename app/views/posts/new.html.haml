@@ -1,18 +1,4 @@
 .post_new
   .post_content
-    %h1.form_title 新規投稿
-
-    = form_for @post do |f|
-      = f.label :title, "タイトル",class: 'form_title'
-      = f.text_field :title
-
-      = f.label :genre_id, "ジャンル選択", class: 'form_genre' 
-      = f.select :genre_id, Genre.all.map { |genre| [genre.name, genre.id] },class: 'from_genre'
-
-      = f.label :image,"写真",class: 'form_image' do
-        = f.file_field :image
-
-      = f.label :text,"本文",class: 'form_text' 
-      = f.text_area :text
-
-      = f.submit "投稿する", class: 'form_submit'
+    %h1.post_content__title 新規投稿
+    = render partial: 'form', locals: { posts: @post }

@@ -1,35 +1,31 @@
 .main
+  = render partial: 'side_bar'
+
   .content
-    .content__text
+    .content__main
       - if @post.text.present?
         .content__box
           = image_tag @post.image.url
+          %p 📗記事の内容 📗
           .content__title
-            %p タイトル
             = @post.title
-          .content__text
-            %p 本文
-            = @post.text
-          %ul.more_list
-          - if user_signed_in? && current_user.id == @post.user_id
-            %li
-              = link_to '編集', "/posts/#{@post.id}/edit", method: :get
-            %li
-              = link_to '削除', "/posts/#{@post.id}", method: :delete
-              %span.name
-              %a{:href => "/users/#{@post.user.id}"}
-                %span 投稿者
-                = @post.user.name
+          %p 本文
+          .content__text_show
+            = simple_format(@post.text)
 
+          .more_list
+          - if user_signed_in? && current_user.id == @post.user_id
+            = link_to '編集', "/posts/#{@post.id}/edit", class: 'more_list__show',method: :get
+            = link_to '削除', "/posts/#{@post.id}", class: 'more_list__show', method: :delete
 
     .comment
       - if current_user
         = form_for ([@post, @comment]) do |f|
-          = f.text_area :text, placeholder: "コメントする"
-          = f.submit "SEND"
+          = f.text_area :text, placeholder: "コメントする", class: "textbox"
+          = f.submit "SEND", class: "comment-submit"
       - else
         %strong
-          %p ※※※ コメントの投稿には新規登録/ログインが必要です ※※※
+          %p === コメントの投稿には新規登録/ログインが必要です ===
       .comments
         %h4 ＜コメント一覧＞
         - if @comments
@@ -39,6 +35,6 @@
                 = link_to comment.user.name, "/users/#{comment.user_id}"
                 ：
               = comment.text
-              - if user_signed_in? && current_user.id == @post.user_id
-                = link_to '削除', "/comments/#{comment.id}", method: :delete
+              -# - if user_signed_in? && current_user.id == @post.user_id
+              = link_to '削除', "/comments/#{comment.id}", method: :delete
               -# = link_to '編集', "/posts/#{@post.id}/comments/#{comment.id}/edit", method: :get

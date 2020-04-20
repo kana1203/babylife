@@ -1,8 +1,4 @@
-%h1.edit_page 投稿編集画面
-= form_for @post do |f|
-  = f.text_field :title
-  = f.select :genre_id, Genre.all.map { |genre| [genre.name, genre.id] },class: 'from_genre'
-  = f.text_field :image
-  = f.text_field :text
-
-  = f.submit "投稿する", class: 'form_submit'
+.post_new
+  .post_content
+    %h1.post_content__title 編集画面
+    = render partial: 'form', locals: { posts: @post }

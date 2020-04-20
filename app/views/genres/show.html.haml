@@ -1,33 +1,29 @@
 .main
   .side_bar
+    %h1.search_title 🔍投稿検索🔍
+    = form_tag('/posts/search', method: :get, class: 'search_form') do
+      = text_field_tag :keyword,'',class: 'search_form__tag'
+      = submit_tag "検索", class: 'search_form__btn'
+    .genre_show_name
+      = @name
+      の投稿一覧
     %p.side_bar__title ジャンル別の投稿
     .side_bar__list
       - @genres.each do |genre|
         = link_to "#{genre.name}","/genres/#{genre.id}",class: 'side_bar__list__btn'
-  %p.show_name
-    = @name
-    の投稿一覧
+  
   .content
     .content__text
       - @posts.each do |post|
         - if post.text.present?
           .content__box
             = image_tag post.image.url
+            %p 📗記事の内容 📗
             .content__title
-              %p タイトル
               = post.title
-            .content__text
-              %p 本文
-              = post.text
-            %ul.more_list
-            %li
-              = link_to '詳細', "/posts/#{post.id}", method: :get
+            .more_list
+            = link_to '詳細', "/posts/#{post.id}", class: 'more_list__show', method: :get
             - if user_signed_in? && current_user.id == post.user_id
-              %li
-                = link_to '編集', "/posts/#{post.id}/edit", method: :get
-              %li
-                = link_to '削除', "/posts/#{post.id}", method: :delete
-                %span.name
-                %a{:href => "/users/#{post.user.id}"}
-                  %span 投稿者
-                  = post.user.name
+              = link_to '編集', "/posts/#{post.id}/edit", class: 'more_list__show',method: :get
+              = link_to '削除', "/posts/#{post.id}", class: 'more_list__show', method: :delete
+          = link_to "投稿者:#{post.user.name}", "/users/#{post.user.id}",class: 'name'

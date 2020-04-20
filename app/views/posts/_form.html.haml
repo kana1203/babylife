@@ -1,0 +1,15 @@
+= form_for @post do |f|
+  = f.label :title, "記事の内容",class: 'post_content__name'
+  = f.text_area :title,class: 'post_content__name-form'
+
+  = f.label :genre_id, "ジャンル選択", class: 'post_content__genre' 
+  = f.select :genre_id, Genre.all.map { |genre| [genre.name, genre.id] }, class: 'post_content__genre-form'
+
+  %p 写真選択
+  = f.label :image,class: 'post_content__image' do
+    = f.file_field :image, class: 'hidden'
+
+  = f.label :text,"本文",class: 'post_content__text' 
+  = f.text_area :text,class: 'post_content__text-form' 
+
+  = f.submit "投稿する", class: 'post_content__submit'

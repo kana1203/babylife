@@ -1,0 +1,11 @@
+.follws_main
+  .follws_main__content
+    %h1.follws フォローしている人一覧
+    .follws_box
+    - @users.each do |user|
+      .follws_box__content
+        %p.follws_box__content__title なまえ:
+        = link_to user.name, user_path(user.id),class: 'follws_box__content__name'
+      - if current_user != user
+        - if user.followed_by?(current_user)
+          %p= link_to "フォロー解除", user_relationships_path(user.id),class: 'follws_link', method: :delete
