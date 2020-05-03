@@ -35,6 +35,10 @@ Things you may want to cover:
 ### Association
 - has_many :posts
 - has_many :comments
+- has_many :active_relationships, class_name: "Relationship", foreign_key: :following_id
+- has_many :followings, through: :active_relationships, source: :follower
+- has_many :passive_relationships, class_name: "Relationship", foreign_key: :follower_id
+- has_many :followers, through: :passive_relationships, source: :following
 
 
 ## postsテーブル
@@ -63,7 +67,7 @@ Things you may want to cover:
 
 ### Association
 - belongs_to :user
-- belongs_to :post
+- belongs_to :post, optional: true
 
 
 ## genresテーブル
@@ -80,9 +84,21 @@ Things you may want to cover:
 
 |Column|Type|Options|
 |------|----|-------|
-|following|integer|null: false|
-|follower|integer|null: false|
+|following_id|integer|null: false|
+|follower_id|integer|null: false|
 
 ### Association
 - belongs_to :following, class_name: "User"
 - belongs_to :follower, class_name: "User"
+
+
+## favoritesテーブル
+
+|Column|Type|Options|
+|------|----|-------|
+|user_id|integer|null: false|
+|post_id|integer|null: false|
+
+### Association
+- belongs_to :user
+- belongs_to :post
