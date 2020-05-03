@@ -74,3 +74,15 @@ Things you may want to cover:
 
 ### Association
 - has_many :posts
+
+
+## relationshipsテーブル
+
+|Column|Type|Options|
+|------|----|-------|
+|following|integer|null: false|
+|follower|integer|null: false|
+
+### Association
+- belongs_to :following, class_name: "User"
+- belongs_to :follower, class_name: "User"

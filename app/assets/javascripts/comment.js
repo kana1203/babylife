@@ -1,11 +1,10 @@
 $(function(){
   function buildHTML(comment){
     var html = `<p>
-                  <strong>
-                    <a href="/users/${comment.user_id}">${comment.user_name}</a>
-                    ：
-                  </strong>
+                  <a href="/users/${comment.user_id}">${comment.user_name}</a>
+                  ：
                   ${comment.text}
+                  <a rel="nofollow" data-method="delete" href="/comments/${comment.id}">削除</a>
                 </p>`
     return html;
   }
@@ -24,10 +23,9 @@ $(function(){
     .done(function(data){
       var html = buildHTML(data);
       $('.comments').append(html);
-      $('form')[0].reset();
+      $('#comment_text').val('');
       $('.comments').animate({ scrollTop: $('.comments')[0].scrollHeight});
       $('.submit').prop('disabled', false);
-      
     })
     .fail(function(){
       alert('error');
