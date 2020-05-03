@@ -1,6 +1,6 @@
 $(function(){
   function buildHTML(comment){
-    var html = `<p>
+    var html =  `<p>
                   <a href="/users/${comment.user_id}">${comment.user_name}</a>
                   ：
                   ${comment.text}
