@@ -16,27 +16,11 @@
               = link_to '編集', "/posts/#{post.id}/edit", class: 'more_list__show',method: :get
               = link_to '削除', "/posts/#{post.id}", class: 'more_list__show', method: :delete
 
+            %div{:id => "favorites_buttons_#{post.id}"}
+              = render partial: 'favorites/favorite', locals: { post: post}
 
-            - if user_signed_in?
-              - if post.favorited_by?(current_user)
-                %p 
-                  %span お気に入り解除:
-                  = link_to "#{post.favorites.count}", "/posts/#{post.id}/favorites", method: :delete
-              - else
-                %p
-                  %span お気に入り登録:
-                  = link_to "#{post.favorites.count}", "/posts/#{post.id}/favorites", method: :post
-            - else
-              %p
-                %span お気に入り数:
-                = "#{post.favorites.count}"
-
-            - if user_signed_in?
-              - if current_user != post.user
-                - if post.user.followed_by?(current_user)
-                  = link_to "フォロー済み", user_relationships_path(post.user.id), method: :delete
-                - else
-                  = link_to "フォローする", user_relationships_path(post.user.id), method: :post
+            %div{:id => "relationships_buttons_#{post.user.id}"}
+              = render partial: 'relationships/relationship', locals: { post: post}
 
             = link_to "投稿者:#{post.user.name}", "/users/#{post.user.id}",class: 'name'
            

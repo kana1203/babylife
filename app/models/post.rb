@@ -2,7 +2,7 @@ class Post < ApplicationRecord
   belongs_to :user
   belongs_to :genre 
   has_many :comments, foreign_key: "post_id", dependent: :destroy
-  has_many :favorites
+  has_many :favorites, dependent: :destroy
   
   with_options presence: true do
     validates :title

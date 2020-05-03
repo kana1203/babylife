@@ -1,0 +1,13 @@
+- if user_signed_in?
+  - if post.favorited_by?(current_user)
+    %p 
+      %span お気に入り解除:
+      = link_to "#{post.favorites.count}", "/posts/#{post.id}/favorites", method: :delete, remote: true
+  - else
+    %p
+      %span お気に入り登録:
+      = link_to "#{post.favorites.count}", "/posts/#{post.id}/favorites", method: :post, remote: true
+- else
+  %p
+    %span お気に入り数:
+    = "#{post.favorites.count}"
