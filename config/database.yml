@@ -48,7 +48,11 @@ test:
 #     url: <%= ENV['DATABASE_URL'] %>
 #
 production:
+  # <<: *default
+  # database: babylife_production
+  # username: babylife
+  # password: <%= ENV['BABYLIFE_DATABASE_PASSWORD'] %>
   <<: *default
-  database: babylife_production
-  username: babylife
-  password: <%= ENV['BABYLIFE_DATABASE_PASSWORD'] %>
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
