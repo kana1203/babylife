@@ -6,7 +6,7 @@
       - if @post.text.present?
         .content__box
           = image_tag @post.image.url
-          %p 📗記事の内容 📗
+          %p 記事の内容
           .content__title
             = @post.title
           %p 本文
@@ -33,7 +33,7 @@
               %strong
                 = link_to comment.user.name, "/users/#{comment.user_id}"
                 ：
-              = comment.text
-              -# - if user_signed_in? && current_user.id == @post.user_id
-              = link_to '削除', "/comments/#{comment.id}", method: :delete
+                = comment.text
+                -# - if user_signed_in? && current_user.id == @post.user_id
+                -#   = link_to '削除', "/comments/#{comment.id}", method: :delete
               -# = link_to '編集', "/posts/#{@post.id}/comments/#{comment.id}/edit", method: :get

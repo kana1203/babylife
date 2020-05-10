@@ -6,6 +6,7 @@
     margin: 0 auto;
     &__title{
       font-size: 40px;
+      text-align: center;
     }
     &__name{
       display: block;
@@ -29,19 +30,19 @@
     }
     &__submit{
       display       : inline-block;
-      border-radius : 50%;          /* 角丸       */
-      font-size     : 50pt;        /* 文字サイズ */
-      text-align    : center;      /* 文字位置   */
-      cursor        : pointer;     /* カーソル   */
-      padding       : 12px 57px;   /* 余白       */
-      background    : rgba(255, 0, 0, 0.61);     /* 背景色     */
-      color         : #000000;     /* 文字色     */
-      line-height   : 1em;         /* 1行の高さ  */
-      opacity       : 1;           /* 透明度     */
-      transition    : .3s;         /* なめらか変化 */
+      border-radius : 50%;
+      font-size     : 50pt;
+      text-align    : center;
+      cursor        : pointer;
+      padding       : 12px 57px;
+      background    : rgba(255, 0, 0, 0.61);
+      color         : #000000;
+      line-height   : 1em;
+      opacity       : 1;
+      transition    : .3s;
     }
     &__submit:hover{
-      opacity       : 0.8;         /* カーソル時透明度 */
+      opacity       : 0.8;
     }
   }
 }

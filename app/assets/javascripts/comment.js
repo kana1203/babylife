@@ -4,7 +4,6 @@ $(function(){
                   <a href="/users/${comment.user_id}">${comment.user_name}</a>
                   ：
                   ${comment.text}
-                  <a rel="nofollow" data-method="delete" href="/comments/${comment.id}">削除</a>
                 </p>`
     return html;
   }
