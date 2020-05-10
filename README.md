@@ -24,10 +24,10 @@ Things you may want to cover:
 * ...
 
 
-#アプリ名
+# アプリ名
 **babylife**
 
-#アプリコンセプト
+# アプリコンセプト
 何かと大変な子育て。ストレスや悩みを抱えているママさんがたくさんいるかと思います。<br>
 私も1歳と半年になる一児の娘を育てていますが、非常に活発な時期で頭を悩ませることもしばしば。<br>
 そんなママさんたちに悩みや子育てに役立つ便利アイテムなどの情報交換できる場があれば<br>
@@ -36,7 +36,7 @@ Things you may want to cover:
 
 ![サンプル](https://github.com/kana1203/babylife/blob/master/%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%83%E3%83%88%202020-05-10%2022.20.04.png width="80px;")
 
-#アプリで出来る事
+# アプリで出来る事
 <dl>
   <dt>ユーザー登録</dt>
   <dd>名前、email、passwordの設定が必要。</dd>
@@ -54,18 +54,18 @@ Things you may want to cover:
   <dd>自分がみたいジャンルのみの表示に切り替えができる。</dd>
 </dl>
 
-#アプリURL
+# アプリURL
 [babylife](https://quiet-mountain-30137.herokuapp.com/)
 
-#工夫したポイント
+# 工夫したポイント
 ユーザーが欲しい情報を検索しやすいようにジャンル別に投稿させて検索の手間を省いた。<br>
 フォロー機能の実装により、好きな人の投稿を簡単に探せる。<br>
 いいね機能の実装により、再度みたい投稿をマイページから簡単に探せる。<br>
 
-#使用技術(開発環境)
+# 使用技術(開発環境)
 HTML・CSS・Ruby・Ruby on Rails・JavaScript・jQuery・SQL・Git・ GitHub・Haml・SCSS・heroku
 
-#課題や今後実装したい機能
+# 課題や今後実装したい機能
 評価機能を実装し、商品ごとのランキングの実装。
 
 
