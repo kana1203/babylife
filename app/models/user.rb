@@ -18,4 +18,11 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
          
   validates :name, presence: true, uniqueness: true
+  with_options presence: true do
+    validates :name
+    validates :email
+    validates :password
+    validates :password_confirmation
+  end
+
 end
