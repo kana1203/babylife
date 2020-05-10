@@ -34,7 +34,9 @@ Things you may want to cover:
 「私だけじゃなかったんだ」「こんなものあったんだ」などと、安心できたり自分の子育てに役立てられると思い<br>
 このアプリを作成しました。
 
-![サンプル](https://github.com/kana1203/babylife/blob/master/%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%83%E3%83%88%202020-05-10%2022.20.04.png width="80px;")
+# アプリの画像
+
+![サンプル](https://github.com/kana1203/babylife/blob/master/%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%83%E3%83%88%202020-05-10%2022.20.04.png)
 
 # アプリで出来る事
 <dl>
@@ -69,7 +71,7 @@ HTML・CSS・Ruby・Ruby on Rails・JavaScript・jQuery・SQL・Git・ GitHub・
 評価機能を実装し、商品ごとのランキングの実装。
 
 
-
+# DB設計
 ## usersテーブル
 
 |Column|Type|Options|
