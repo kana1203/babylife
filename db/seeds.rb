@@ -12,4 +12,3 @@ Genle.create(name: "日記")
 Genle.create(name: "写真")
 Genle.create(name: "悩み")
 Genle.create(name: "おすすめ遊び場")
-
