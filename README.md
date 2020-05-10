@@ -60,9 +60,9 @@ Things you may want to cover:
 [babylife](https://quiet-mountain-30137.herokuapp.com/)
 
 # 工夫したポイント
-ユーザーが欲しい情報を検索しやすいようにジャンル別に投稿させて検索の手間を省いた。<br>
-フォロー機能の実装により、好きな人の投稿を簡単に探せる。<br>
-いいね機能の実装により、再度みたい投稿をマイページから簡単に探せる。<br>
+・ユーザーが欲しい情報を検索しやすいようにジャンル別に投稿させて検索の手間を省いた。<br>
+・フォロー機能の実装により、好きな人の投稿を簡単に探せる。<br>
+・いいね機能の実装により、再度みたい投稿をマイページから簡単に探せる。<br>
 
 # 使用技術(開発環境)
 HTML・CSS・Ruby・Ruby on Rails・JavaScript・jQuery・SQL・Git・ GitHub・Haml・SCSS・heroku
