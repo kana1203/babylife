@@ -16,10 +16,10 @@
               = link_to '編集', "/posts/#{post.id}/edit", class: 'more_list__show',method: :get
               = link_to '削除', "/posts/#{post.id}", class: 'more_list__show', method: :delete
 
-            %div{:id => "favorites_buttons_#{post.id}"}
+            %div{id: "favorites_buttons_#{post.id}"}
               = render partial: 'favorites/favorite', locals: { post: post}
 
-            %div{:id => "relationships_buttons_#{post.user.id}"}
+            %div{id: "relationships_buttons_#{post.user.id}"}
               = render partial: 'relationships/relationship', locals: { post: post}
 
             = link_to "投稿者:#{post.user.name}", "/users/#{post.user.id}",class: 'name'
