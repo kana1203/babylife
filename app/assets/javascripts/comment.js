@@ -1,9 +1,11 @@
 $(function(){
   function buildHTML(comment){
     var html =  `<p>
-                  <a href="/users/${comment.user_id}">${comment.user_name}</a>
-                  ：
-                  ${comment.text}
+                  <strong>
+                    <a href="/users/${comment.user_id}">${comment.user_name}</a>
+                    ：
+                    ${comment.text}
+                  </strong>
                 </p>`
     return html;
   }
@@ -24,7 +26,7 @@ $(function(){
       $('.comments').append(html);
       $('#comment_text').val('');
       $('.comments').animate({ scrollTop: $('.comments')[0].scrollHeight});
-      $('.submit').prop('disabled', false);
+      $('input').prop('disabled', false);
     })
     .fail(function(){
       alert('error');
